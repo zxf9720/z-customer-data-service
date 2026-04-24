@@ -1,6 +1,6 @@
-package com.shawn.wealth.customer.service;
+package com.shawn.customer.service;
 
-import com.shawn.wealth.customer.dto.CustomerProfileResponse;
+import com.shawn.customer.dto.CustomerProfileResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

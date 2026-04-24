@@ -1,7 +1,7 @@
-package com.shawn.wealth.customer.controller;
+package com.shawn.customer.controller;
 
-import com.shawn.wealth.customer.dto.CustomerProfileResponse;
-import com.shawn.wealth.customer.service.CustomerService;
+import com.shawn.customer.dto.CustomerProfileResponse;
+import com.shawn.customer.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

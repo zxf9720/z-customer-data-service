@@ -1,4 +1,4 @@
-package com.shawn.wealth.customer.dto;
+package com.shawn.customer.dto;
 
 public record CustomerProfileResponse(
         String customerId,

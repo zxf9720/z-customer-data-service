@@ -1,4 +1,4 @@
-package com.shawn.wealth.customer;
+package com.shawn.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
