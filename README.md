@@ -61,34 +61,6 @@ PostgreSQL
 http://localhost:8082
 ```
 
----
-
-## Configuration
-
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/appdb
-    username: appuser
-    password: apppass
-
-  data:
-    redis:
-      host: localhost
-      port: 6379
-
-  kafka:
-    bootstrap-servers: localhost:9092
-
-server:
-  port: 8082
-
-security:
-  api-key: dev-api-key
-```
-
----
-
 ## Runtime Dependencies
 
 - PostgreSQL: localhost:5432/appdb

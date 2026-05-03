@@ -10,11 +10,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -88,79 +86,4 @@ public class CustomerService {
         );
     }
 
-
-
-    // JDBCTemplate version:
-//    private final JdbcTemplate jdbcTemplate;
-//
-//    private final Map<String, CustomerProfileResponse> mockCustomers = Map.of(
-//            "C1001", new CustomerProfileResponse(
-//                    "C1001",
-//                    "John Smith",
-//                    45,
-//                    120000,
-//                    "MEDIUM",
-//                    "BALANCED",
-//                    "VERIFIED"
-//            ),
-//            "C1002", new CustomerProfileResponse(
-//                    "C1002",
-//                    "Mary Chen",
-//                    62,
-//                    85000,
-//                    "LOW",
-//                    "INCOME",
-//                    "VERIFIED"
-//            )
-//    );
-//
-//    public CustomerService(JdbcTemplate jdbcTemplate) {
-//        this.jdbcTemplate = jdbcTemplate;
-//    }
-//
-//    public CustomerProfileResponse getCustomerProfile(String customerId) {
-//        Optional<CustomerProfileResponse> dbCustomer = findCustomerFromDatabase(customerId);
-//
-//        if (dbCustomer.isPresent()) {
-//            return dbCustomer.get();
-//        }
-//
-//        CustomerProfileResponse mockCustomer = mockCustomers.get(customerId);
-//        if (mockCustomer != null) {
-//            return mockCustomer;
-//        }
-//
-//        throw new IllegalArgumentException("Customer not found: " + customerId);
-//    }
-//
-//    private Optional<CustomerProfileResponse> findCustomerFromDatabase(String customerId) {
-//        String sql = """
-//                SELECT
-//                    customer_id,
-//                    name,
-//                    age,
-//                    annual_income,
-//                    risk_level,
-//                    investment_objective,
-//                    kyc_status
-//                FROM customer_profile
-//                WHERE customer_id = ?
-//                """;
-//
-//        return jdbcTemplate.query(sql, rs -> {
-//            if (!rs.next()) {
-//                return Optional.empty();
-//            }
-//
-//            return Optional.of(new CustomerProfileResponse(
-//                    rs.getString("customer_id"),
-//                    rs.getString("name"),
-//                    rs.getInt("age"),
-//                    rs.getDouble("annual_income"),
-//                    rs.getString("risk_level"),
-//                    rs.getString("investment_objective"),
-//                    rs.getString("kyc_status")
-//            ));
-//        }, customerId);
-//    }
 }
