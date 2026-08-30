@@ -42,8 +42,10 @@ PostgreSQL
 
 ## Tech Stack
 
-- Java 21
-- Spring Boot 4
+- Java 25
+- Spring Boot 4.1.0
+- Spring AI 2.0.0 dependency management
+- springdoc-openapi 3.0.2
 - Spring Web MVC
 - Spring Data JPA
 - PostgreSQL
@@ -86,6 +88,18 @@ CREATE TABLE customer_profile (
 ---
 
 ## API
+
+Interactive OpenAPI documentation is available while the service is running:
+
+```text
+http://localhost:8082/swagger-ui.html
+```
+
+The generated OpenAPI specification is available at:
+
+```text
+http://localhost:8082/v3/api-docs
+```
 
 ### Get Customer Profile
 
@@ -167,8 +181,10 @@ Checks:
 
 ## Run
 
+JDK 25 is required for local builds and execution.
+
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 ---
@@ -176,17 +192,30 @@ mvn spring-boot:run
 ## Build
 
 ```bash
-mvn package
+./mvnw package
 java -jar target/z-customer-data-service-0.0.1-SNAPSHOT.jar
 ```
+
+---
+
+## Docker
+
+The multi-stage Docker build compiles the service with Eclipse Temurin JDK 25 and runs it on the smaller Java 25 JRE image as a non-root user.
+
+```bash
+docker build -t z-customer-data-service:jdk25 .
+docker run --rm -p 8082:8082 z-customer-data-service:jdk25
+```
+
+The configured PostgreSQL, Redis, and Kafka addresses must be reachable from the container. Override the corresponding Spring properties for your Docker environment as needed.
 
 ---
 
 ## Tests
 
 ```bash
-mvn test
-mvn verify
+./mvnw test
+./mvnw verify
 ```
 
 JaCoCo:
