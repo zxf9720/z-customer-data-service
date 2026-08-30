@@ -13,6 +13,12 @@ This service exposes REST APIs and integrates with PostgreSQL using JPA, support
 
 ---
 
+## Upgrade Summary
+
+Updated the project to JDK 25, Spring Boot 4.1.0, Spring AI 2.0.0, springdoc-openapi 3.0.2, and a Java 25 Docker runtime.
+
+---
+
 ## Key Responsibilities
 
 - Provide customer profile data via REST APIs
